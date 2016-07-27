@@ -18,11 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="kI4-CZ-Iw6">
-                                <rect key="frame" x="250" y="150" width="96" height="150"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="kI4-CZ-Iw6">
+                                <rect key="frame" x="250" y="150" width="100" height="300"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEa-Ld-K8H">
-                                        <rect key="frame" x="0.0" y="0.0" width="96" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         <state key="normal" image="RecordingImage">
                                             <color key="titleColor" red="0.12562099360000001" green="0.12562099360000001" blue="0.12562099360000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -31,13 +31,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2m-CV-PQM">
-                                        <rect key="frame" x="0.0" y="50" width="96" height="50"/>
+                                        <rect key="frame" x="0.0" y="100" width="100" height="100"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6b-9B-rlm">
-                                        <rect key="frame" x="0.0" y="100" width="96" height="50"/>
+                                        <rect key="frame" x="0.0" y="200" width="100" height="100"/>
                                         <state key="normal" image="StopRecordingImage">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
