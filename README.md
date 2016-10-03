@@ -5,3 +5,7 @@ Fun App that records a conversation with you and a friend and plays it back to m
 ### Screenshots
 ![alt tag](https://github.com/kak2008/Pitch-Perfect/blob/master/Screen%20Shots/Screen%20Shot%202016-08-04%20at%201.37.21%20AM.png)
 
+## Requirements
+* Xcode 7.3
+* Swift 2.0
+
