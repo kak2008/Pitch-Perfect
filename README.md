@@ -8,6 +8,14 @@ In order to run this app. Download the repository, open it on XCode, build & run
 ### Screenshots
 ![alt tag](https://github.com/kak2008/Pitch-Perfect/blob/master/Screen%20Shots/Screen%20Shot%202016-08-04%20at%201.37.21%20AM.png)
 
+## Implementation
+
+- __Record Sounds view controller__: - This view controller consists of audio recorder. User can tap on record button and record the conversation. 
+
+- __Play Sound view controller__: - This view controller will play the audio recording that made in record sounds view controller. This view controller consits of six different variations of audio modulations. User can tap on any modulation with respect to its pitch rate.
+
+- Duration of recording is also shown in this view controller.
+
 ## Requirements
 * Xcode 7.3
 * Swift 2.0
