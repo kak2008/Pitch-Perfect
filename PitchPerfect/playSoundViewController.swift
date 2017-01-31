@@ -36,25 +36,25 @@ class playSoundViewController: UIViewController {
         
     // MARK: Slider Actions
         
-    @IBAction func playAudioRateForSlider(sender: UISlider)
+    @IBAction func playAudioRateForSlider(_ sender: UISlider)
     {
         switch (SliderType(rawValue: sender.tag)!) {
-        case .ChipmunkSlider:
+        case .chipmunkSlider:
             let chipmunkSliderCurrentValue = lroundf(sender.value)
             chipmunkRateLabel.text = "Rate: \(chipmunkSliderCurrentValue)/5 "
-        case .VaderSlider:
+        case .vaderSlider:
             let darthvanderSliderCurrentValue = lroundf(sender.value)
             darthvanderRateLabel.text = "Rate: \(darthvanderSliderCurrentValue)/5"
-        case .EchoSlider:
+        case .echoSlider:
             let echoSliderCurrentValue = lroundf(sender.value)
             echoRateLabel.text = "Rate: \(echoSliderCurrentValue)/5"
-        case .RabitSlider:
+        case .rabitSlider:
             let rabitSliderCurrentValue = lroundf(sender.value)
             rabitRateLabel.text = "Rate: \(rabitSliderCurrentValue)/5"
-        case .ReverbSlider:
+        case .reverbSlider:
             let reverbSliderCurrentValue = lroundf(sender.value)
             reverbRatelabel.text = "Rate: \(reverbSliderCurrentValue)/5"
-        case .SnailSlider:
+        case .snailSlider:
             let snailSliderCurrentValue = lroundf(sender.value)
             snailRateLabel.text = "Rate: \(snailSliderCurrentValue)/5"
         }
@@ -63,43 +63,43 @@ class playSoundViewController: UIViewController {
     
     // MARK: Play Sound Button Actions
 
-    @IBAction func playSoundForButton(sender: UIButton){
+    @IBAction func playSoundForButton(_ sender: UIButton){
         print("Play sound button pressed.")
         switch (ButtonType(rawValue: sender.tag)!) {
-        case .Chipmunk:
+        case .chipmunk:
             playSound(rate: chipmunkSlider.value, pitch: 1000, echo: false, reverb: false)
-        case .Vader:
+        case .vader:
             playSound(rate: darthvanderSlider.value, pitch: -1000, echo: false, reverb: false)
-        case .Echo:
+        case .echo:
             playSound(rate: echoSlider.value, pitch: 0, echo: true, reverb: false)
-        case .Rabit:
+        case .rabit:
             playSound(rate: rabitSlider.value, pitch: 0, echo: false, reverb: false)
-        case .Reverb:
+        case .reverb:
             playSound(rate: reverbSlider.value, pitch: 0, echo: false, reverb: true)
-        case .Snail:
+        case .snail:
             playSound(rate: snailSlider.value, pitch: 0, echo: false, reverb: false)
         }
-        configureUI(.Playing)
+        configureUI(.playing)
     }
     
-    @IBAction func stopButtonPressed(sender: UIButton)
+    @IBAction func stopButtonPressed(_ sender: UIButton)
     {
         print("stop button pressed.")
         stopAudio()
     }
     
-    var recordedAudioURL: NSURL!
+    var recordedAudioURL: URL!
     
     var audioFile: AVAudioFile!
     var audioEngine: AVAudioEngine!
     var audioPlayerNode: AVAudioPlayerNode!
-    var stopTimer: NSTimer!
+    var stopTimer: Timer!
     
-    var duration: NSTimeInterval!
+    var duration: TimeInterval!
     
-    enum ButtonType: Int {case Chipmunk = 0, Vader,Echo,Rabit,Reverb,Snail}
+    enum ButtonType: Int {case chipmunk = 0, vader,echo,rabit,reverb,snail}
     
-    enum SliderType: Int {case ChipmunkSlider = 6, VaderSlider, EchoSlider, RabitSlider, ReverbSlider, SnailSlider}
+    enum SliderType: Int {case chipmunkSlider = 6, vaderSlider, echoSlider, rabitSlider, reverbSlider, snailSlider}
     
     override func viewDidLoad()
     {
@@ -108,8 +108,8 @@ class playSoundViewController: UIViewController {
         rateAudioLabelsUpdate()
     }
  
-    override func viewWillAppear(animated: Bool) {
-        configureUI(.NotPlaying)
+    override func viewWillAppear(_ animated: Bool) {
+        configureUI(.notPlaying)
     }
 
     override func didReceiveMemoryWarning() {
@@ -117,7 +117,7 @@ class playSoundViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         stopAudio()
     }
     
@@ -129,10 +129,10 @@ class playSoundViewController: UIViewController {
         
         do
         {
-            let avAudioPlayer = try AVAudioPlayer (contentsOfURL:recordedAudioURL)
+            let avAudioPlayer = try AVAudioPlayer (contentsOf:recordedAudioURL)
             duration = avAudioPlayer.duration
-            let ms  = Int((duration%1)*1000)
-            let sec = Int(duration%60)
+            let ms  = Int((duration.truncatingRemainder(dividingBy: 1))*1000)
+            let sec = Int(duration.truncatingRemainder(dividingBy: 60))
             let minutes = Int(duration / 60) % 60
             let hours = Int(duration / 3600)
             recordedAudioDuration.text = (NSString(format: "Dur: %0.2d:%0.2d:%0.2d.%0.3d",hours,minutes,sec,ms)) as String
